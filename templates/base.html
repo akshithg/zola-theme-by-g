@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="{{ config.description }}" />
+    <link rel="stylesheet" href="/base.css" />
+    <link
+      rel="license"
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    />
+    {% for key, val in config.extra.social %}
+    <link rel="me" href="{{ val }}" />
+    {% endfor %}
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+
+  <body>
+    <script>
+      const theme =
+        localStorage.getItem("theme") || "{{ config.extra.theme.default }}";
+      document.documentElement.dataset.theme = theme;
+    </script>
+
+    <div class="site-center">
+      <div class="site-header">
+        <div class="site-title" id="site-title">
+          <a href="/">{{config.title}}</a>
+        </div>
+        <div class="site-nav">
+          {% for item in config.extra.sections %}
+          <div class="site-nav-item" id="site-nav-item-{{ item }}">
+            <a href="/{{ item }}">{{ item }}</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="site-content">{% block site_content %} {% endblock %}</div>
+
+      <div class="site-footer">
+        <div class="site-footer-content">
+          {% for key, val in config.extra.social %}
+          <span class="site-footer-item">
+            <a href="{{ val }}" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/{{key}}.svg" alt="{{key}} Icon" />
+            </a>
+          </span>
+          {% endfor %}
+        </div>
+        <div class="site-footer-content">
+          <span class="site-footer-item">
+            <a
+              href="https://supporters.eff.org/donate/join-eff-4"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Support the EFF</a
+            >
+          </span>
+          <span class="site-footer-item">
+            <a
+              href="{{ config.extra.copyright.link }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {% for i in config.extra.copyright.icons %}
+              <img src="/icons/{{i}}.svg" alt="{{i}} Icon" />
+              {% endfor %}
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    {% block script %} {% endblock %}
+    <script src="/js/base.js" defer></script>
+  </body>
+</html>

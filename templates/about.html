@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ section.title }}
+{% endblock %}
+
+{% block site_content %}
+    <div class='content'>
+        <div class='content-title'>
+            <h1>{{ section.title }}</h1>
+        </div>
+
+        <div class='content-body'>
+            {{ section.content | safe }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.getElementById('site-nav-item-home').classList.add('active');
+    </script>
+{% endblock %}

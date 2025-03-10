@@ -1,0 +1,46 @@
+# The URL the site will be built for
+base_url = "https://example.xyz"
+
+# The site title and description; used in feeds by default.
+title = "Your Name"
+description = "A Personal Blog"
+
+# The default language; used in feeds.
+default_language = "en"
+
+# feed
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[markdown]
+highlight_code = true
+
+[extra]
+# Put all your custom variables here
+
+sections = ["notes", "research", "projects"]
+
+theme.default = "light"
+theme.dark_icon = "🕶️"
+theme.light_icon = "👓"
+
+social.cv = "/files/yourcv.pdf"
+social.dblp = "https://dblp.org/pid/000/0000.html"
+social.email = "mailto:your-email@example.com"
+social.github = "https://github.com/yourusername"
+social.google_scholar = "https://scholar.google.com/citations?user=youruserid"
+social.keybase = "https://keybase.io/yourusername"
+social.linkedin = "https://www.linkedin.com/in/yourusername/"
+social.mastodon = "https://mastodon.social/@yourusername"
+social.orcid = "https://orcid.org/0000-0000-0000-0000"
+social.rss = "/atom.xml"
+social.twitter = "https://twitter.com/yourusername"
+
+copyright.link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+copyright.icons = ["cc", "by", "nc", "sa"]                            # cc, by, nc, sa, publicdomain

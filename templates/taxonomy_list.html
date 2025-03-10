@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %} {{ taxonomy.name }} {% endblock %}
+{% block site_content %} {% for term in terms %}
+<div class="content">
+    <a href="{{ term.permalink }}">
+        <div class="content-title left">
+            <h1>{{ term.name }}</h1>
+        </div>
+    </a>
+</div>
+{% endfor %} {% endblock %} {% block script %} {% endblock %}

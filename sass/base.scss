@@ -1,0 +1,348 @@
+// layout
+$max-width: 600px;
+$min-height: 100vh;
+
+// colors
+$red: #bb0000;
+$green: #25b161;
+$black: #16161d;
+$white: #ededed;
+$yellow: #fde995;
+
+// font
+$font-family: 'SF Pro', sans-serif;
+$code-font-family: 'Source Code Pro', monospace;
+
+// font-size
+$font-size-h1: 1.5em;
+$font-size-h2: 1.2em;
+$font-size-h3: 1em;
+$font-size-p: 1em;
+$font-size-small: 0.8em;
+$font-weight-light: 300;
+
+// line-height
+$line-height: 1.5;
+
+// gaps
+$gap-xxl: 100px;
+$gap-xl: 80px;
+$gap-l: 50px;
+$gap: 30px;
+$gap-s: 20px;
+$gap-xs: 10px;
+
+// border
+$border: 1px solid;
+$big-border: 3px solid;
+$border-radius: 10px;
+
+:root {
+    --red : #{$red};
+    --green : #{$green};
+    --black : #{$black};
+    --white : #{$white};
+    --yellow : #{$yellow};
+    --border-radius: #{$border-radius};
+}
+
+:root[data-theme='light'] {
+    color-scheme: light;
+    --background-color: #{var(--white)};
+    --text-color: #{var(--black)};
+    --accent-color: #{var(--red)};
+    --big-border: 3px solid #{var(--black)};
+    --small-border: 1px solid #{var(--black)};
+    --big-border-accent: 3px solid #{var(--accent-color)};
+    --small-border-accent: 1px solid #{var(--accent-color)};
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --background-color: #{var(--black)};
+    --text-color: #{var(--white)};
+    --accent-color: #{var(--green)};
+    --big-border: 3px solid #{var(--white)};
+    --small-border: 1px solid #{var(--white)};
+    --big-border-accent: 3px solid #{var(--accent-color)};
+    --small-border-accent: 1px solid #{var(--accent-color)};
+}
+
+::selection {
+    color: $black;
+    background-color: $yellow;
+}
+
+::-moz-selection {
+    color: $black;
+    background-color: $yellow;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: $font-family;
+    font-size: $font-size-p;
+
+    h1, h2, h3 {
+        &::before {
+            color: var(--accent-color);
+        }
+    }
+
+    h1 {
+        font-size: $font-size-h1;
+        font-weight: $font-weight-light;
+        // &::before {
+        //     content: '# ';
+        // }
+    }
+
+    h2 {
+        font-size: $font-size-h2;
+        font-weight: $font-weight-light;
+        // &::before {
+        //     content: '## ';
+        // }
+    }
+
+    h3 {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-light;
+        // &::before {
+        //     content: '### ';
+        // }
+    }
+
+    a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        fill: var(--text-color);
+    }
+
+    .site-center {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-xl;
+
+        margin: 0 auto;
+        padding: $gap;
+
+        min-height: $min-height;
+        max-width: $max-width;
+    }
+
+    .site-header {
+        background-color: var(--background-color);
+        padding: $gap-xs 0;
+        // position: sticky;
+        // top: 0;
+        // z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .site-title {
+            font-size: $font-size-h1;
+            border-bottom: var(--big-border-accent);
+        }
+
+        .site-nav {
+            display: flex;
+            gap: $gap-s;
+            align-items: baseline;
+            justify-content: space-between;
+
+            .site-nav-item {
+                border-bottom: var(--big-border);
+            }
+
+            .active {
+                border-bottom: var(--big-border-accent);
+            }
+
+            // .site-nav-icon {
+            // }
+        }
+    }
+
+    .site-footer {
+        margin-top: auto;
+        border: var(--small-border);
+        border-style: dashed none none none;
+        padding: $gap-xs 0;
+        display: flex;
+        flex-direction: column;
+        gap: $gap-s;
+
+        .site-footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-around;
+            gap: $gap-s;
+
+            .site-footer-item {
+                border-bottom: var(--small-border-accent);
+
+                img { // feed icon
+                    height: 1em;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .site-content {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-l;
+        // page
+        // section with page preview
+        // single taxonomy/term with page preview
+        // taxonomy list with no page preview
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-s;
+
+            .content-item-meta,
+            .content-meta {
+                display: flex;
+                flex-direction: row;
+                gap: $gap-s;
+                font-size: $font-size-small;
+                .date {
+                    color: var(--accent-color);
+                }
+                // .tags {}
+            }
+
+            .left {
+                text-align: right;
+            }
+
+            .content-item-title,
+            .content-title {
+                font-size: $font-size-h1;
+            }
+
+            .content-item-preview,
+            .content-body {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-xs;
+
+                h2 {
+                    margin-top: $gap-s;
+                }
+
+                line-height: $line-height;
+
+                a {
+                    color: var(--text-color);
+                    border-bottom: var(--big-border);
+                }
+                blockquote {
+                    padding: $gap-s;
+                    border-left: $big-border;
+                    // font-style: italic;
+                    text-align: justify;
+                }
+                code {
+                    font-family: $code-font-family;
+                }
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    border-radius: var(--border-radius);
+                }
+                hr {
+                    border-style: dashed none none none;
+                }
+                ol,
+                ul {
+                    margin: 0 $gap;
+                }
+                p {
+                    font-size: $font-size-p;
+                }
+                pre {
+                    padding: $gap-xs;
+                    border: $border;
+                    border-radius: var(--border-radius);
+                    max-width: 100%;
+                    white-space: pre-wrap;
+                    overflow-x: auto;
+                }
+                sup {
+                    font-size: $font-size-small;
+                    a {
+                        color: var(--accent-color);
+                        border-bottom: none;
+                    }
+                }
+                table {
+                    border-collapse: collapse;
+                    border-top: $border;
+                    border-bottom: $border;
+                    overflow: hidden;
+                    max-width: 100%;
+                    margin: 0 auto;
+                    th {
+                        padding: $gap-xs;
+                        border-bottom: $border;
+                    }
+                    td {
+                        padding: $gap-xs;
+                    }
+                }
+
+                .footnote-definition {
+                    display: flex;
+                    gap: $gap-xs;
+                    .footnote-backref {
+                        font-size: $font-size-small;
+                        color: var(--accent-color);
+                        border-bottom: none;
+                    }
+                }
+                .footnote-reference {
+                    text-decoration: underline;
+                }
+            }
+
+            .content-list {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-s;
+                .content-item{
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-xs;
+                }
+            }
+
+            .content-pagination {
+                padding-top: $gap;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}

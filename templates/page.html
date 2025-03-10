@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %} {{ page.title }} {% endblock %} {%
+block site_content %}
+<div class="content">
+    <div class="content-meta">
+        <div class="meta date">{{ page.date | date(format='%B %d, %Y') }}</div>
+        {% if page.updated %}
+        <div class="meta date">
+            ({{ page.updated | date(format='%B %d, %Y') }})
+        </div>
+        {% endif %} {% if page.taxonomies['tags'] %}
+        <div class="meta tags">
+            {% for term in page.taxonomies['tags'] %}
+            <a href="/tags/{{ term }}">#{{ term }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="content-title">
+        <h1>{{ page.title }}</h1>
+    </div>
+
+    <div class="content-body">{{ page.content | safe }}</div>
+</div>
+{% endblock %} {% block script %} {% endblock %}
