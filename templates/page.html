@@ -1,5 +1,6 @@
-{% extends 'base.html' %} {% block title %} {{ page.title }} {% endblock %} {%
-block site_content %}
+{% extends 'base.html' %}
+{% block title %} {{ page.title }} {% endblock %}
+{%block site_content %}
 <div class="content">
     <div class="content-meta">
         <div class="meta date">{{ page.date | date(format='%B %d, %Y') }}</div>
@@ -22,4 +23,7 @@ block site_content %}
 
     <div class="content-body">{{ page.content | safe }}</div>
 </div>
-{% endblock %} {% block script %} {% endblock %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}
