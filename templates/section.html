@@ -27,14 +27,6 @@
                     <span class="meta date">
                         {{ page.date | date(format='%b %d, %Y') }}
                     </span>
-
-                    {% if page.taxonomies['tags'] %}
-                    <span class="meta tags">
-                        {% for term in page.taxonomies['tags'] %}
-                            #{{ term }}
-                        {% endfor %}
-                    </span>
-                    {% endif %}
                 </div>
                 <div class="content-item-title">
                     <h3>{{ page.title }}</h3>
