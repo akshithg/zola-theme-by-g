@@ -1,6 +1,5 @@
 +++
-title = "Notes"
-template = "notes.html"
+title = "Blog"
 sort_by = "date"
 paginate_by = 10
 +++

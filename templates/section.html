@@ -16,9 +16,7 @@
         {% endif %}
     </div>
 
-    {% if paginator.current_index == 1 %}
     <div class="content-body">{{ section.content | safe }}</div>
-    {% endif %}
 
     {% if paginator %}
     <div class="content-list">
@@ -30,12 +28,13 @@
                         {{ page.date | date(format='%b %d, %Y') }}
                     </span>
 
-                    <!-- {% if page.taxonomies['tags'] %}
+                    {% if page.taxonomies['tags'] %}
                     <span class="meta tags">
-                        {% for term in page.taxonomies['tags'] %} #{{ term }} {%
-                        endfor %}
+                        {% for term in page.taxonomies['tags'] %}
+                            #{{ term }}
+                        {% endfor %}
                     </span>
-                    {% endif %} -->
+                    {% endif %}
                 </div>
                 <div class="content-item-title">
                     <h3>{{ page.title }}</h3>
@@ -68,6 +67,6 @@
 
 {% block script %}
 <script>
-    document.getElementById("site-nav-item-{{section.name}}").classList.add("active");
+    document.getElementById("site-nav-item-{{section.title | lower}}").classList.add("active");
 </script>
 {% endblock %}

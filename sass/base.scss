@@ -83,6 +83,15 @@ $border-radius: 10px;
     padding: 0;
 }
 
+#bitmoji {
+    float: left;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 10%;
+    min-width: 100px;
+}
+
 html,
 body {
     background: var(--background-color);
@@ -226,10 +235,10 @@ body {
                 flex-direction: row;
                 gap: $gap-s;
                 font-size: $font-size-small;
+                .tags,
                 .date {
                     color: var(--accent-color);
                 }
-                // .tags {}
             }
 
             .left {
@@ -328,9 +337,10 @@ body {
             }
 
             .content-list {
+                padding-top: $gap-l;
                 display: flex;
                 flex-direction: column;
-                gap: $gap-s;
+                gap: $gap-l;
                 .content-item{
                     display: flex;
                     flex-direction: column;

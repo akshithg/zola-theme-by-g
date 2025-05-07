@@ -1,30 +1,22 @@
-# The URL the site will be built for
 base_url = "https://example.xyz"
-
-# The site title and description; used in feeds by default.
 title = "Your Name"
 description = "A Personal Blog"
 
-# The default language; used in feeds.
-default_language = "en"
-
-# feed
 generate_feeds = true
+default_language = "en"
 feed_filenames = ["atom.xml"]
 
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
+
+# theme = "zola-theme-by-g"
 
 [markdown]
 highlight_code = true
 
 [extra]
-# Put all your custom variables here
-
-sections = ["notes", "research", "projects"]
+sections = ["about", "blog", "projects"] # order in which sections are displayed
 
 theme.default = "light"
 theme.dark_icon = "🕶️"
@@ -43,4 +35,4 @@ social.rss = "/atom.xml"
 social.twitter = "https://twitter.com/yourusername"
 
 copyright.link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-copyright.icons = ["cc", "by", "nc", "sa"]                            # cc, by, nc, sa, publicdomain
+copyright.icons = ["cc", "by", "nc", "sa"] # cc, by, nc, sa, publicdomain
