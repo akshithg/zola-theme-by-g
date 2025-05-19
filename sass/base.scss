@@ -108,25 +108,25 @@ body {
     h1 {
         font-size: $font-size-h1;
         font-weight: $font-weight-light;
-        // &::before {
-        //     content: '# ';
-        // }
+        &::before {
+            content: '# ';
+        }
     }
 
     h2 {
         font-size: $font-size-h2;
         font-weight: $font-weight-light;
-        // &::before {
-        //     content: '## ';
-        // }
+        &::before {
+            content: '## ';
+        }
     }
 
     h3 {
         font-size: $font-size-h3;
         font-weight: $font-weight-light;
-        // &::before {
-        //     content: '### ';
-        // }
+        &::before {
+            content: '### ';
+        }
     }
 
     a {
@@ -345,6 +345,13 @@ body {
                     display: flex;
                     flex-direction: column;
                     gap: $gap-xs;
+                }
+                h1,
+                h2,
+                h3 {
+                    &::before {
+                        content: '';
+                    }
                 }
             }
 
