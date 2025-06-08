@@ -1,6 +1,23 @@
 // layout
-$max-width: 600px;
+$max-width: 900px;
 $min-height: 100vh;
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1280px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  }
+}
 
 // colors
 $red: #bb0000;
@@ -84,9 +101,9 @@ $border-radius: 10px;
 }
 
 #bitmoji {
-    float: left;
+    // float: left;
     position: fixed;
-    bottom: 0px;
+    top: 100px;
     left: 0px;
     width: 10%;
     min-width: 100px;
@@ -255,6 +272,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: $gap-xs;
+                overflow-x: auto;
 
                 h2 {
                     margin-top: $gap-s;
@@ -264,7 +282,7 @@ body {
 
                 a {
                     color: var(--text-color);
-                    border-bottom: var(--big-border);
+                    border-bottom: var(--small-border);
                 }
                 blockquote {
                     padding: $gap-s;
@@ -276,10 +294,12 @@ body {
                     font-family: $code-font-family;
                 }
                 img {
+                    border-radius: var(--border-radius);
                     display: block;
+                    height: auto;
                     margin: 0 auto;
                     max-width: 100%;
-                    border-radius: var(--border-radius);
+                    overflow-x: auto;
                 }
                 hr {
                     border-style: dashed none none none;
@@ -310,7 +330,7 @@ body {
                     border-collapse: collapse;
                     border-top: $border;
                     border-bottom: $border;
-                    overflow: hidden;
+                    overflow-x: auto;
                     max-width: 100%;
                     margin: 0 auto;
                     th {
@@ -345,6 +365,12 @@ body {
                     display: flex;
                     flex-direction: column;
                     gap: $gap-xs;
+                }
+                @include respond-to(xs) {
+                    gap: $gap-xs;
+                    .content-item-title {
+                        font-size: $font-size-h2;
+                    }
                 }
                 h1,
                 h2,
